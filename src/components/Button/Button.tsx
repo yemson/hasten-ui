@@ -11,18 +11,19 @@ const Spinner = () => (
 );
 
 const buttonStyles = cva(
-  "inline-flex items-center justify-center font-sans rounded-lg min-h-[44px] min-w-[44px] cursor-pointer [touch-action:manipulation] transition active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 user-select-none disabled:cursor-not-allowed disabled:opacity-50",
+  "inline-flex items-center justify-center font-sans rounded-lg min-h-[44px] min-w-[44px] cursor-pointer [touch-action:manipulation] transition active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 user-select-none disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
         primary: "bg-blue-500 hover:bg-blue-600 text-white",
-        secondary: "bg-gray-200 hover:bg-gray-300 text-gray-800",
+        secondary:
+          "bg-gray-200 hover:bg-gray-300 text-gray-800 dark:text-white dark:bg-gray-700 dark:hover:bg-gray-800",
         danger: "bg-red-500 hover:bg-red-600 text-white",
         outline:
-          "border border-gray-300 bg-transparent text-gray-800 hover:bg-gray-100 active:bg-gray-100",
+          "border border-gray-300 bg-transparent text-gray-800 hover:bg-gray-100 active:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800",
         ghost:
-          "bg-transparent text-gray-800 hover:bg-gray-100 active:bg-gray-100",
-        link: "bg-transparent text-blue-500 hover:underline active:underline",
+          "bg-transparent text-gray-800 hover:bg-gray-100 active:bg-gray-100 dark:text-white dark:hover:bg-gray-800",
+        link: "bg-transparent text-blue-500 hover:underline active:underline dark:text-blue-400",
       },
       size: {
         base: "text-base px-5 py-1.5 h-[44px] min-w-[44px]",
