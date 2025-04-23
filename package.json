@@ -1,5 +1,6 @@
 {
   "name": "hasten-ui",
+  "packageManager": "pnpm@10.9.0",
   "private": true,
   "version": "0.0.1",
   "type": "module",
