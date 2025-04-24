@@ -23,6 +23,9 @@ jobs:
           node-version: "20"
           version: "10.9.0"
 
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
