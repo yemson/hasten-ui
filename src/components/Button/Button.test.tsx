@@ -58,4 +58,10 @@ describe("Button", () => {
     await user.click(btn);
     expect(onClick).not.toHaveBeenCalled();
   });
+
+  it("커스텀 class도 잘 들어있어야 함", () => {
+    render(<Button className="custom-class">커스텀</Button>);
+    const btn = screen.getByRole("button", { name: /커스텀/i });
+    expect(btn).toHaveClass("custom-class");
+  });
 });
