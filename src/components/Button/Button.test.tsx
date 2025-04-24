@@ -21,12 +21,13 @@ describe("Button", () => {
     expect(btn).toHaveClass("bg-red-500", "text-xl");
   });
 
-  it("로딩 상태면 Spinner 나오고 로딩에 해당하는 클래스 있어야 함", () => {
+  it("로딩 상태면 Spinner 나오고 비활성 상태에다가 aria-busy가 true여야 함", () => {
     render(<Button loading>로딩중</Button>);
     const btn = screen.getByRole("button", { name: /로딩중/i });
     const spinner = screen.getByRole("status", { hidden: true });
     expect(spinner).toBeInTheDocument();
-    expect(btn).toHaveClass("cursor-wait", "opacity-75");
+    expect(btn).toBeDisabled();
+    expect(btn).toHaveAttribute("aria-busy", "true");
   });
 
   it("비활성 상태면 aria-disabled 와 disabled 속성이 true여야 함", () => {

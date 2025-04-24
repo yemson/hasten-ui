@@ -11,7 +11,7 @@ const Spinner = () => (
 );
 
 const buttonStyles = cva(
-  "inline-flex items-center justify-center font-sans rounded-lg min-h-[44px] min-w-[44px] cursor-pointer [touch-action:manipulation] transition active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 user-select-none disabled:cursor-not-allowed disabled:opacity-50",
+  "inline-flex items-center justify-center font-sans rounded-lg min-h-[44px] min-w-[44px] cursor-pointer [touch-action:manipulation] transition active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 user-select-none disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
       variant: {
@@ -30,15 +30,10 @@ const buttonStyles = cva(
         lg: "text-lg px-6 py-2 h-[48px] min-w-[48px]",
         xl: "text-xl px-7 py-2.5 h-[52px] min-w-[52px]",
       },
-      loading: {
-        true: "cursor-wait opacity-75",
-        false: "",
-      },
     },
     defaultVariants: {
       variant: "primary",
       size: "base",
-      loading: false,
     },
   }
 );
@@ -62,12 +57,14 @@ export const Button = ({
   children,
   ...props
 }: ButtonProps) => {
+  const isDisabled = disabled || loading;
+
   return (
     <button
       type="button"
-      className={clsx(buttonStyles({ variant, size, loading }), className)}
-      disabled={disabled}
-      aria-disabled={disabled}
+      className={clsx(buttonStyles({ variant, size }), className)}
+      disabled={isDisabled}
+      aria-disabled={isDisabled}
       aria-busy={loading || undefined}
       {...props}
     >
