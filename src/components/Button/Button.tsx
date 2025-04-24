@@ -30,7 +30,7 @@ const buttonStyles = cva(
         xl: "text-xl px-7 py-2.5 h-[52px] min-w-[52px]",
       },
       loading: {
-        true: "cursor-wait",
+        true: "cursor-wait opacity-75",
         false: "",
       },
     },
@@ -52,7 +52,7 @@ interface ButtonWithChildren extends BaseButtonProps {
 
 export type ButtonProps = ButtonWithChildren;
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   variant,
   size,
   className,
@@ -60,15 +60,13 @@ export const Button: React.FC<ButtonProps> = ({
   loading,
   children,
   ...props
-}) => {
-  const isDisabled = disabled || loading;
-
+}: ButtonProps) => {
   return (
     <button
       type="button"
       className={clsx(buttonStyles({ variant, size, loading }), className)}
-      disabled={isDisabled}
-      aria-disabled={isDisabled}
+      disabled={disabled}
+      aria-disabled={disabled}
       aria-busy={loading || undefined}
       {...props}
     >
