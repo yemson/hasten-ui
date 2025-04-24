@@ -11,10 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out code
+        #👇 Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: pnpm
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          node-version: "20"
+          version: "10.9.0"
+
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
