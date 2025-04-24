@@ -3,42 +3,40 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Button } from "./Button";
 
-describe("Button 컴포넌트", () => {
-  it("기본 렌더링: children이 보여야 하고, primary variant, base size 클래스가 들어있어야 해", () => {
+describe("Button", () => {
+  it("children이 보여야 하고, 기본 설정에 해당하는 클래스가 들어있어야 함", () => {
     render(<Button>클릭해</Button>);
     const btn = screen.getByRole("button", { name: /클릭해/i });
     expect(btn).toBeInTheDocument();
-    expect(btn).toHaveClass("bg-blue-500");
-    expect(btn).toHaveClass("text-base");
+    expect(btn).toHaveClass("bg-blue-500", "text-base");
   });
 
-  it("variant, size prop에 맞는 클래스가 붙어야 돼", () => {
+  it("variant, size에 맞는 클래스가 들어있어야 함", () => {
     render(
       <Button variant="danger" size="xl">
         위험
       </Button>
     );
     const btn = screen.getByRole("button", { name: /위험/i });
-    expect(btn).toHaveClass("bg-red-500");
-    expect(btn).toHaveClass("text-xl");
+    expect(btn).toHaveClass("bg-red-500", "text-xl");
   });
 
-  it("loading=true 면 Spinner가 나오고, cursor-wait opacity-75 클래스 있어야 함", () => {
+  it("로딩 상태면 Spinner 나오고 로딩에 해당하는 클래스 있어야 함", () => {
     render(<Button loading>로딩중</Button>);
     const btn = screen.getByRole("button", { name: /로딩중/i });
     const spinner = screen.getByRole("status", { hidden: true });
     expect(spinner).toBeInTheDocument();
-    expect(btn).toHaveClass("cursor-wait");
+    expect(btn).toHaveClass("cursor-wait", "opacity-75");
   });
 
-  it("disabled=true 면 aria-disabled 와 disabled 속성이 제대로 세팅돼야 돼", () => {
+  it("비활성 상태면 aria-disabled 와 disabled 속성이 true여야 함", () => {
     render(<Button disabled>비활성</Button>);
     const btn = screen.getByRole("button", { name: /비활성/i });
     expect(btn).toBeDisabled();
     expect(btn).toHaveAttribute("aria-disabled", "true");
   });
 
-  it("onClick 이벤트 핸들러가 disabled 아닐 때만 호출돼야 한다", async () => {
+  it("비활성 상태가 아닐 땐 클릭 이벤트가 제대로 작동해야 함", async () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
     render(<Button onClick={onClick}>눌러</Button>);
@@ -47,7 +45,7 @@ describe("Button 컴포넌트", () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it("disabled 상태면 onClick 절대 호출 안 돼야 함", async () => {
+  it("비활성 상태면 클릭 이벤트 작동하면 안됌", async () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
     render(
