@@ -11,7 +11,7 @@ const Spinner = () => (
 );
 
 const buttonStyles = cva(
-  "inline-flex items-center justify-center font-sans rounded-lg min-h-[44px] min-w-[44px] cursor-pointer [touch-action:manipulation] transition active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 user-select-none disabled:opacity-50 disabled:pointer-events-none",
+  "inline-flex items-center justify-center font-medium rounded-lg min-h-[44px] min-w-[44px] cursor-pointer [touch-action:manipulation] transition active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-black disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
       variant: {
