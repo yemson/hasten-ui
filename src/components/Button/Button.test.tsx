@@ -64,4 +64,14 @@ describe("Button", () => {
     const btn = screen.getByRole("button", { name: /커스텀/i });
     expect(btn).toHaveClass("custom-class");
   });
+
+  it("focus 시에 ring 이 잘 들어가야 함", () => {
+    render(<Button>포커스</Button>);
+    const btn = screen.getByRole("button", { name: /포커스/i });
+    btn.focus();
+    expect(btn).toHaveClass(
+      "focus-visible:ring-2",
+      "focus-visible:ring-blue-500"
+    );
+  });
 });
