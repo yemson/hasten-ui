@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  lint-and-test:
-    name: Lint and Test
+  lint-format-and-test:
+    name: Lint, Format, and Test
     runs-on: ubuntu-latest
 
     steps:
@@ -18,11 +18,19 @@ jobs:
       - name: Set up pnpm
         uses: pnpm/action-setup@v3
         with:
-          node-version: "20"
           version: "10.9.0"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Check formatting
+        run: pnpm format
 
       - name: Run linter
         run: pnpm lint

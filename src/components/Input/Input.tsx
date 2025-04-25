@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 import React from "react";
 
 const inputStyles = cva(
-  "block w-full rounded-lg bg-white dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:placeholder:text-gray-600 ring-1 ring-gray-300 hover:ring-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 placeholder:text-gray-400 transition ease-in-out disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-100 disabled:hover:ring-gray-300 appearance-none outline-none",
+  "block w-full rounded-lg bg-transparent dark:text-white dark:placeholder:text-gray-600 ring-1 ring-gray-300 dark:ring-gray-800 hover:ring-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-black placeholder:text-gray-400 transition ease-in-out disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:ring-gray-300 dark:disabled:hover:ring-gray-800 appearance-none outline-none",
   {
     variants: {
       size: {
@@ -15,7 +15,7 @@ const inputStyles = cva(
     defaultVariants: {
       size: "base",
     },
-  }
+  },
 );
 
 export type InputProps = Omit<

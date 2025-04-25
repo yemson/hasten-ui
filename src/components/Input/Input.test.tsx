@@ -18,7 +18,7 @@ describe("Input", () => {
         <Input size="base" placeholder="base" />
         <Input size="lg" placeholder="lg" />
         <Input size="xl" placeholder="xl" />
-      </>
+      </>,
     );
 
     expect(screen.getByPlaceholderText("base")).toHaveClass("text-base");

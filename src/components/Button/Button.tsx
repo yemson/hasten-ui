@@ -4,7 +4,7 @@ import React from "react";
 
 const Spinner = () => (
   <span
-    className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent mr-2"
+    className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"
     role="status"
     aria-hidden="true"
   />
@@ -35,7 +35,7 @@ const buttonStyles = cva(
       variant: "primary",
       size: "base",
     },
-  }
+  },
 );
 
 type BaseButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &

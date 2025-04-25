@@ -43,7 +43,7 @@ export const AllVariants: Story = {
           <Button key={v} {...args} variant={v as ButtonProps["variant"]}>
             {v}
           </Button>
-        )
+        ),
       )}
     </div>
   ),

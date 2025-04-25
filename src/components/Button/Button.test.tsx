@@ -15,7 +15,7 @@ describe("Button", () => {
     render(
       <Button variant="danger" size="xl">
         위험
-      </Button>
+      </Button>,
     );
     const btn = screen.getByRole("button", { name: /위험/i });
     expect(btn).toHaveClass("bg-red-500", "text-xl");
@@ -52,7 +52,7 @@ describe("Button", () => {
     render(
       <Button disabled onClick={onClick}>
         못눌러
-      </Button>
+      </Button>,
     );
     const btn = screen.getByRole("button", { name: /못눌러/i });
     await user.click(btn);
@@ -71,7 +71,7 @@ describe("Button", () => {
     btn.focus();
     expect(btn).toHaveClass(
       "focus-visible:ring-2",
-      "focus-visible:ring-blue-500"
+      "focus-visible:ring-blue-500",
     );
   });
 });
