@@ -15,10 +15,12 @@ const buttonStyles = cva(
   {
     variants: {
       variant: {
-        primary: "bg-blue-500 hover:bg-blue-600 active:bg-blue-600 text-white",
+        primary:
+          "bg-blue-500 hover:bg-blue-500/75 active:bg-blue-500/75 text-white dark:bg-blue-600 dark:hover:bg-blue-600/75 dark:active:bg-blue-600/75",
         secondary:
-          "bg-gray-200 hover:bg-gray-300 active:bg-gray-300 text-gray-800 dark:text-white dark:bg-gray-700 dark:hover:bg-gray-800",
-        danger: "bg-red-500 hover:bg-red-600 active:bg-red-600 text-white",
+          "bg-gray-200 hover:bg-gray-200/75 active:bg-gray-200/75 text-gray-800 dark:text-white dark:bg-gray-700 dark:hover:bg-gray-700/75",
+        danger:
+          "bg-red-500 hover:bg-red-500/75 active:bg-red-500/75 text-white dark:bg-red-600 dark:hover:bg-red-600/75 dark:active:bg-red-600/75",
         outline:
           "border border-gray-300 bg-transparent text-gray-800 hover:bg-gray-100 active:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800",
         ghost:
